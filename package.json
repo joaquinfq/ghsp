@@ -5,6 +5,7 @@
     "main": "gulpfile.js",
     "scripts": {
         "build": "gulp build",
+        "dist": "NODE_ENV=production gulp build",
         "start": "gulp",
         "test": "echo Sin tests ; exit 0"
     },
@@ -18,11 +19,13 @@
         "gulp": "^4.0.0",
         "gulp-autoprefixer": "^6.0.0",
         "gulp-concat": "^2.6.1",
+        "gulp-if": "^2.0.2",
         "gulp-include": "^2.3.1",
         "gulp-pug": "^4.0.1",
         "gulp-sass": "^4.0.1",
         "gulp-sourcemaps": "^2.6.5",
         "gulp-terser": "^1.1.7",
-        "handlebars": "^4.0.12"
+        "handlebars": "^4.0.12",
+        "node-env-tools": "^1.0.2"
     }
 }
