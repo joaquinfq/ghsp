@@ -2,22 +2,12 @@ const browserSync = require('browser-sync');
 const gulp        = require('gulp');
 
 /**
- * Recompila los archivos .pug y refresca el navegador.
- */
-gulp.task(
-    'rebuild',
-    gulp.parallel(
-        'pug',
-        () => browserSync.reload()
-    )
-);
-
-/**
  * Observa las tareas de SASS y PUG y refresca el navegador cuando terminan.
  */
 gulp.task(
     'browser-sync',
     gulp.parallel(
+        'javascript',
         'sass',
         'pug',
         done => {
@@ -33,3 +23,4 @@ gulp.task(
         }
     )
 );
+gulp.watch('dist/**/*').on('change', browserSync.reload);

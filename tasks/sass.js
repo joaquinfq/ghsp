@@ -1,7 +1,6 @@
-const browserSync = require('browser-sync');
-const gulp        = require('gulp');
-const prefix      = require('gulp-autoprefixer');
-const sass        = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const gulp         = require('gulp');
+const sass         = require('gulp-sass');
 
 /**
  * Compila los archivos `.sass` generando el archivo `main.css`.
@@ -18,7 +17,7 @@ gulp.task(
         )
         .on('error', sass.logError)
         .pipe(
-            prefix(
+            autoprefixer(
                 ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
                 {
                     cascade : true
@@ -26,11 +25,4 @@ gulp.task(
             )
         )
         .pipe(gulp.dest('dist'))
-        .pipe(
-            browserSync.reload(
-                {
-                    stream : true
-                }
-            )
-        )
 );
